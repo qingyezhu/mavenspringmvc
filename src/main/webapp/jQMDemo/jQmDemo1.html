@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQM基本页面</title>
+<link rel="stylesheet"
+	href="../jqueryMobile/jquery.mobile-1.4.4.min.css">
+</head>
+<body>
+	<div data-role="page" id="index">
+		<div data-role="header" data-position="fixed">
+			<h1>我是标题1</h1>
+		</div>
+
+		<div role="main" class="ui-content">
+			<table data-role="table" data-mode="reflow" class="ui-responsive table-stroke">
+				<thead>
+					<tr>
+						<th>第一列</th>
+						<th>第二列</th>
+						<th>第三列</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>123</td>
+						<td>456</td>
+						<td>789</td>
+					</tr>
+					<tr>
+						<td>000</td>
+						<td>111</td>
+						<td>222</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>我是内容1</p>
+			<p>
+				<a href="#index2" data-transition="slide">index2</a>
+			</p>
+			<button class="ui-btn ui-btn-inline">按钮1</button>
+			<button class="ui-btn ui-btn-inline ui-shadow">按钮2</button>
+			<button class="ui-btn ui-btn-inline ui-corner-all">按钮3</button>
+			<a href="#" class="ui-btn ui-btn-inline ui-btn-a">我是按钮1</a> <a
+				href="#" class="ui-btn ui-btn-inline ui-btn-b">我是按钮2</a> <input
+				type="button" value="我也是按钮" />
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#" data-icon="camera">导航1</a></li>
+					<li><a href="#" data-icon="carat-l">导航2</a></li>
+					<li><a href="#" data-icon="carat-r">导航3</a></li>
+					<li><a href="#" data-icon="carat-u">导航4</a></li>
+					<li><a href="#" data-icon="carat-d">导航5</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="index2">
+		<div data-role="header">
+			<h1>我是标题2</h1>
+		</div>
+
+		<div role="main" class="ui-content">
+			<form>
+				<div class="ui-field-contain">
+					<label>发车站：</label> <input type="text">
+				</div>
+				<div class="ui-field-contain">
+					<label>到达站：</label> <input type="text">
+				</div>
+				<div class="ui-field-contain">
+					<label>车次：</label> <input type="text">
+				</div>
+			</form>
+			<p>我是内容2</p>
+			<p>
+				<a href="#index" data-transition="slide">index</a>
+			</p>
+			<ul data-role="listview" data-inset="true">
+				<li><a href="#">
+						<h2>G1次</h2>
+						<p>xxxx-xx</p>
+						<p>xxx-xx</p>
+						<p class="ui-li-aside">9:00 开</p>
+				</a></li>
+				<li><a href="#">导航2</a></li>
+				<li><a href="#">导航3</a></li>
+				<li><a href="#">导航4</a></li>
+				<li><a href="#">导航5</a></li>
+			</ul>
+		</div>
+
+		<div data-role="footer">
+			<h1>我是页脚2</h1>
+		</div>
+	</div>
+	<script src="../js/jquery-1.8.3.js"></script>
+	<script src="../jqueryMobile/jquery.mobile-1.4.4.min.js"></script>
+	<script type="text/javascript">
+		/*	
+		$(document).on("pagebeforecreate", function() {
+				alert("pagebeforecreate");
+			});
+			$(document).on("pagecreate", function() {
+				alert("pagecreate");
+			});
+			$(document).on("pageinit", function() {
+				alert("pageinit");
+			});
+		 */
+		/*
+		 $(document).on("pagebeforehide", "#index", function() {
+		 alert("pagebeforehide");
+		 });
+		 $(document).on("pagebeforeshow", "#index2", function() {
+		 alert("pagebeforeshow");
+		 });
+		 $(document).on("pagehide", "#index", function() {
+		 alert("pagehide");
+		 });
+		 $(document).on("pageshow", "#index2", function() {
+		 alert("pageshow");
+		 });
+		 */
+	</script>
+</body>
+</html>
