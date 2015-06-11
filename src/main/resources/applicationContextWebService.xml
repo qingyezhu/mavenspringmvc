@@ -42,7 +42,10 @@
 		</jaxrs:languageMappings>
 		<!--对象转换-->
 		<jaxrs:providers>
-			<bean class="org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider"/>
+			<!--
+				<bean class="org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider"/>
+				-->
+			<bean class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
 		</jaxrs:providers>
 		
 	</jaxrs:server>

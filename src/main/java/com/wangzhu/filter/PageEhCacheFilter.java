@@ -12,7 +12,8 @@ import net.sf.ehcache.constructs.web.AlreadyGzippedException;
 import net.sf.ehcache.constructs.web.filter.FilterNonReentrantException;
 import net.sf.ehcache.constructs.web.filter.SimplePageCachingFilter;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
@@ -27,7 +28,8 @@ import org.springframework.util.StringUtils;
  */
 public class PageEhCacheFilter extends SimplePageCachingFilter {
 
-	private static final Logger log = Logger.getLogger(PageEhCacheFilter.class);
+	private static final Logger logger = LoggerFactory
+			.getLogger(PageEhCacheFilter.class);
 	private static final String FILTER_URL_PATTERNS = "patterns";
 	private static String[] cacheURLs;
 
@@ -56,7 +58,7 @@ public class PageEhCacheFilter extends SimplePageCachingFilter {
 			if (query != null) {
 				query = "?" + query;
 			}
-			PageEhCacheFilter.log.info("当前请求被缓存：" + url + query);
+			PageEhCacheFilter.logger.info("当前请求被缓存：{}", url + query);
 			super.doFilter(request, response, chain);
 		} else {
 			chain.doFilter(request, response);
