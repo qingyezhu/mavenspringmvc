@@ -3,6 +3,9 @@ package com.wangzhu.listener;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Servlet的监听器Listener<br/>
  * 随Web应用的启动而启动，只初始化一次，并随Web应用的停止而销毁<br/>
@@ -13,15 +16,20 @@ import javax.servlet.ServletContextListener;
  */
 public class MyServletContextListener implements ServletContextListener {
 
+	private static final Logger logger = LoggerFactory
+			.getLogger(MyServletContextListener.class);
+
 	/**
 	 * 应用监听器的初始化方法
 	 */
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		System.out.println("MyServletContextListener contextInitialized");
-		System.out.println("MyServletContextListener initParameter: "
-				+ sce.getServletContext().getInitParameter(
-						"contextConfigLocation"));
+		MyServletContextListener.logger
+				.info("MyServletContextListener contextInitialized");
+		MyServletContextListener.logger
+				.info("MyServletContextListener initParameter: "
+						+ sce.getServletContext().getInitParameter(
+								"contextConfigLocation"));
 		try {
 			/**
 			 * 局部配置：在项目META-INFO下面新建context.xml文件<br/>
@@ -32,7 +40,7 @@ public class MyServletContextListener implements ServletContextListener {
 			// Context ct = new InitialContext();
 			// DataSource ds = (DataSource) ct
 			// .lookup("java:comp/env/jdbc/test_jndi_oracle");
-			// System.out.println(ds.getConnection());
+			// logger.info(ds.getConnection());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -44,7 +52,8 @@ public class MyServletContextListener implements ServletContextListener {
 	 */
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
-		System.out.println("MyServletContextListener contextDestroyed");
+		MyServletContextListener.logger
+				.info("MyServletContextListener contextDestroyed");
 	}
 
 }

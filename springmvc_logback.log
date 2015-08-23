@@ -1,0 +1,19 @@
+2015/06/28-22:05:56.941 [main] INFO          com.wangzhu.dao.impl.UserDaoImpl - saveOrUpdate before user=com.wangzhu.entity.User@1e7c609[
+  id=<null>
+  name=new one user
+  version=<null>
+]
+2015/06/28-22:05:57.037 [main] INFO          com.wangzhu.dao.impl.UserDaoImpl - saveOrUpdate after user=com.wangzhu.entity.User@1e7c609[
+  id=8a826be84e3a7d21014e3a7d259b0000
+  name=new one user
+  version=0
+]
+2015/06/28-22:05:57.134 [main] INFO                              jdbc.sqlonly - insert into user (name, pass, version, id) values ('new one user', 'new one pwd', 0, '8a826be84e3a7d21014e3a7d259b0000') 
+
+2015/06/28-22:05:57.139 [main] INFO                            jdbc.sqltiming - insert into user (name, pass, version, id) values ('new one user', 'new one pwd', 0, '8a826be84e3a7d21014e3a7d259b0000') 
+ {executed in 2 msec}
+2015/06/28-22:05:57.193 [main] INFO          com.wangzhu.test.UserServiceTest - save user = com.wangzhu.entity.User@1e7c609[
+  id=8a826be84e3a7d21014e3a7d259b0000
+  name=new one user
+  version=0
+]

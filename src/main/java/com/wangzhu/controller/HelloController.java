@@ -1,13 +1,17 @@
 package com.wangzhu.controller;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wangzhu.util.DateFormatUtil;
@@ -15,29 +19,6 @@ import com.wangzhu.util.DateFormatUtil;
 @Controller
 public class HelloController {
 
-	private ThreadLocal<DateFormat> df = new ThreadLocal<DateFormat>() {
-
-		@Override
-		protected DateFormat initialValue() {
-			return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS");
-		}
-
-		@Override
-		public DateFormat get() {
-			return super.get();
-		}
-
-		@Override
-		public void set(DateFormat value) {
-			super.set(value);
-		}
-
-		@Override
-		public void remove() {
-			super.remove();
-		}
-
-	};
 	private static final SimpleDateFormat sdf = new SimpleDateFormat(
 			"yyyy-MM-dd HH:mm:ss SSS");
 
@@ -71,5 +52,14 @@ public class HelloController {
 				HelloController.patternArr[HelloController.i & 1]));
 		return new ModelAndView("hello", "message",
 				"hello world! Spring MVC Framework!");
+	}
+
+	@RequestMapping(value = "/errorMessage", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public Map<String, Object> errorMessage(@RequestParam String error) {
+		Map<String, Object> ret = new LinkedHashMap<String, Object>();
+		ret.put("status", 500);
+		ret.put("statusText", error);
+		return ret;
 	}
 }

@@ -10,6 +10,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 为请求或响应统一设置编码<br/>
@@ -21,6 +23,8 @@ import org.apache.commons.lang3.StringUtils;
  * 
  */
 public class CharacterEncodingFilter implements Filter {
+	private static final Logger logger = LoggerFactory
+			.getLogger(CharacterEncodingFilter.class);
 
 	private final static String ENCODING = "UTF-8";
 
@@ -28,7 +32,7 @@ public class CharacterEncodingFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		System.out.println("CharacterEncodingPage init()");
+		CharacterEncodingFilter.logger.info("CharacterEncodingPage init()");
 		encoding = filterConfig.getInitParameter("encoding");
 		if (StringUtils.isEmpty(encoding)) {
 			encoding = CharacterEncodingFilter.ENCODING;
@@ -38,7 +42,7 @@ public class CharacterEncodingFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-		System.out.println("CharacterEncodingPage doFilter()");
+		CharacterEncodingFilter.logger.info("CharacterEncodingPage doFilter()");
 
 		// 设置请求【request】与响应【response】的编码方式
 		request.setCharacterEncoding(encoding);
@@ -50,7 +54,7 @@ public class CharacterEncodingFilter implements Filter {
 
 	@Override
 	public void destroy() {
-		System.out.println("CharacterEncodingPage destroy()");
+		CharacterEncodingFilter.logger.info("CharacterEncodingPage destroy()");
 	}
 
 }

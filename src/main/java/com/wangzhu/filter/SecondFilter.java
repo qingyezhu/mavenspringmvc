@@ -9,23 +9,29 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class SecondFilter implements Filter {
+
+	private static final Logger logger = LoggerFactory
+			.getLogger(SecondFilter.class);
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		System.out.println("SecondFilter init");
+		SecondFilter.logger.info("SecondFilter init");
 	}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-		System.out.println("SecondFilter doFilter start");
+		SecondFilter.logger.info("SecondFilter doFilter start");
 		chain.doFilter(request, response);
-		System.out.println("SecondFilter doFilter end");
+		SecondFilter.logger.info("SecondFilter doFilter end");
 	}
 
 	@Override
 	public void destroy() {
-		System.out.println("SecondFilter destroy");
+		SecondFilter.logger.info("SecondFilter destroy");
 	}
 }
